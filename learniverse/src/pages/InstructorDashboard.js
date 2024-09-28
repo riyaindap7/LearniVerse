@@ -13,6 +13,19 @@ import './InstructorDashboard.css';
 
 function InstructorDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [courses, setCourses] = useState([
+    {
+      id: 1,
+      name: 'Course 1',
+      description: 'This is a description of course 1.',
+    },
+    {
+      id: 2,
+      name: 'Course 2',
+      description: 'This is a description of course 2.',
+    },
+    // Add initial courses or leave empty
+  ]);
 
   const handleSidebarOpen = () => {
     setSidebarOpen(true);
@@ -20,6 +33,11 @@ function InstructorDashboard() {
 
   const handleSidebarClose = () => {
     setSidebarOpen(false);
+  };
+
+  // Function to add a new course
+  const handleAddCourse = (newCourse) => {
+    setCourses((prevCourses) => [...prevCourses, newCourse]);
   };
 
   return (
@@ -54,8 +72,8 @@ function InstructorDashboard() {
       <div style={{ padding: '20px' }}>
         <Routes>
           <Route path="student-dashboard" element={<StudentDashboard />} />
-          <Route path="add-course" element={<AddCourseForm />} />
-          <Route path="my-courses" element={<MyCourses />} />
+          <Route path="add-course" element={<AddCourseForm onAddCourse={handleAddCourse} />} />
+          <Route path="my-courses" element={<MyCourses courses={courses} />} />
           <Route
             path="*"
             element={
