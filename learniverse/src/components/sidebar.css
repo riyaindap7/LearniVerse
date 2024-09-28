@@ -1,0 +1,35 @@
+/* src/components/sidebar.css */
+.sidebar{
+    color:white;
+}
+
+.MuiDrawer-paper {
+    background-color: #f8f8f8; 
+    color: #ffff; 
+    border-right: 0.5px solid #002096; 
+    padding: 20px; 
+    padding-top: 50px;
+  }
+  
+  .MuiListItem-root {
+    color: #555; 
+  }
+
+  
+  .MuiListItem-root:hover {
+    background-color: #ddd; 
+  }
+  
+  .MuiListItemIcon-root {
+    color: #555; 
+  }
+  
+  .MuiListItemText-primary {
+    font-size: 16px; 
+  }
+  
+  /* Add some padding to nested items */
+  .MuiListItem-root.nested {
+    padding-left: 40px; 
+  }
+  
