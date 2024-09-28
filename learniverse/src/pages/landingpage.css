@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.main {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Title styling */
+title {
+  font-family: 'Roboto', sans-serif; /* Use Roboto font */
+  font-weight: 700; /* Bold weight for title */
+  color: #c2c2db; /* Matching the button color */
+  text-transform: uppercase; /* Make the title uppercase */
+}
+
+/* Overlay styling */
+.overlaying {
+  position: absolute;
+  top: 48%;
+  left: 70%;
+  transform: translate(-50%, -70%);
+  color: white;
+  text-align: left;
+}
+
+.overlaying h1 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  margin-bottom: 20px;
+}
+
+.sign-in-btn {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.2rem;
+  background-color: #0f0d8f;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.sign-in-btn:hover {
+  background-color: #4b45a0;
+  box-shadow: 0 0 20px rgba(114, 200, 253, 0.7), 0 0 30px rgba(247, 255, 247, 0.5);
+}
+
+.sign-in-btn.glow {
+  box-shadow: 0 0 20px rgba(35, 149, 255, 0.7), 0 0 30px rgba(86, 202, 255, 0.5);
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.cursor {
+  display: inline-block;
+  width: 10px;
+  background-color: white; /* or your text color */
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    background-color: transparent; /* Makes it invisible */
+  }
+}
+

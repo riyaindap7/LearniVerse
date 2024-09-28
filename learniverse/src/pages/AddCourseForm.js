@@ -1,54 +1,51 @@
 // src/pages/AddCourseForm.js
 import React, { useState } from 'react';
-import { Button, TextField, Typography, Box } from '@mui/material';
+import { Box, TextField, Button, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-function AddCourseForm({ onAddCourse }) {
-  const [courseName, setCourseName] = useState('');
-  const [courseDescription, setCourseDescription] = useState('');
+const AddCourseForm = ({ onAddCourse }) => {
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [instructor, setInstructor] = useState(''); // New state for instructor's name
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const newCourse = {
-      id: Date.now(), // Use timestamp as unique ID
-      name: courseName,
-      description: courseDescription,
-    };
-
-    onAddCourse(newCourse);
-
-    // Redirect to My Courses page after adding course
-    navigate('/my-courses');
+  const handleSave = () => {
+    const newCourse = { name, description, instructor }; // Include instructor name
+    onAddCourse(newCourse); // Call the function passed as a prop
+    navigate('/my-courses'); // Redirect to My Courses page after adding the course
   };
 
   return (
-    <Box component="form" onSubmit={handleSubmit}>
+    <Box>
       <Typography variant="h4" gutterBottom>
-        Add New Course
+        Add Course
       </Typography>
       <TextField
-        fullWidth
         label="Course Name"
-        value={courseName}
-        onChange={(e) => setCourseName(e.target.value)}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        fullWidth
         margin="normal"
-        required
       />
       <TextField
-        fullWidth
         label="Course Description"
-        value={courseDescription}
-        onChange={(e) => setCourseDescription(e.target.value)}
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        fullWidth
         margin="normal"
-        required
       />
-      <Button variant="contained" color="primary" type="submit" style={{ marginTop: '20px' }}>
-        Add Course
+      <TextField
+        label="Instructor Name" // New input for instructor's name
+        value={instructor}
+        onChange={(e) => setInstructor(e.target.value)}
+        fullWidth
+        margin="normal"
+      />
+      <Button variant="contained" color="primary" onClick={handleSave}>
+        Save
       </Button>
     </Box>
   );
-}
+};
 
 export default AddCourseForm;

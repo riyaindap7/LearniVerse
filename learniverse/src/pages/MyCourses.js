@@ -1,39 +1,49 @@
 // src/pages/MyCourses.js
 import React from 'react';
-import { Card, CardContent, CardActions, Button, Typography, Grid } from '@mui/material';
+import { Box, Typography, Card, CardContent, CardActions, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 
-function MyCourses({ courses }) {
+const MyCourses = ({ courses }) => { // Accept courses as a prop
+  const handleDeleteCourse = (index) => {
+    // Handle course deletion (implementation omitted for now)
+  };
+
+  const handleEditCourse = (index, updatedCourse) => {
+    // Handle course editing (implementation omitted for now)
+  };
+
   return (
-    <div>
+    <Box>
       <Typography variant="h4" gutterBottom>
         My Courses
       </Typography>
-      <Grid container spacing={3}>
-        {courses.map((course) => (
-          <Grid item xs={12} sm={6} md={4} key={course.id}>
-            <Card>
-              <CardContent>
-                <Typography variant="h5" component="div">
-                  {course.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {course.description}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small" color="primary">
-                  View Course
-                </Button>
-                <Button size="small" color="secondary">
-                  Edit Course
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
+
+      <Box display="flex" flexWrap="wrap" gap={2}>
+        {courses.map((course, index) => (
+          <Card key={index} sx={{ minWidth: 275 }}>
+            <CardContent>
+              <Typography variant="h5" component="div">
+                {course.name}
+              </Typography>
+              <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                {course.description}
+              </Typography>
+              <Typography color="text.secondary">
+                Instructor: {course.instructor} {/* Display instructor name */}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small" onClick={() => handleEditCourse(index, { ...course, name: 'Updated Name' })}>
+                Edit
+              </Button>
+              <Button size="small" onClick={() => handleDeleteCourse(index)}>
+                Delete
+              </Button>
+            </CardActions>
+          </Card>
         ))}
-      </Grid>
-    </div>
+      </Box>
+    </Box>
   );
-}
+};
 
 export default MyCourses;

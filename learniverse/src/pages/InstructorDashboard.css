@@ -1,16 +1,31 @@
 /* src/pages/InstructorDashboard.css */
+*{
+  margin:0;
+  font-family: Arial;
+  border: border-box ;
+}
+
 .instructor-dashboard .navbar {
-    background-color: #3f51b5; /* Example color */
+    background-color: rgba(0, 0, 0, 0.5); 
+    margin: 15px;
+    height: 5rem;
+    border-radius: 4rem;
   }
   
   .instructor-dashboard .title {
     flex-grow: 1;
   }
   
+  .instructor-dashboard{
+    background-image: url("orange_instructor1.jpg");
+    height: 705px;
+    display: flex;
+  }
   .instructor-dashboard .search {
     position: relative;
-    border-radius: 4px;
+    border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.15);
+    margin-top: 15px;
     margin-right: 20px;
     margin-left: 0;
     width: auto;
@@ -27,5 +42,18 @@
   .instructor-dashboard .searchIcon {
     padding: 10px;
     color: inherit;
+  }
+  
+  .instructor-dashboard.sidebar{
+    
+     
+  }
+
+  .profile-menu {
+    background-color: rgba(255, 255, 255, 0.2); 
+    color: white; 
+    padding: 10px 20px; 
+    border-radius: 10px; 
+    cursor: pointer; 
   }
   

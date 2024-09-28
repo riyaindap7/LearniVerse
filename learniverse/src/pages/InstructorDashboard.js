@@ -13,19 +13,7 @@ import './InstructorDashboard.css';
 
 function InstructorDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [courses, setCourses] = useState([
-    {
-      id: 1,
-      name: 'Course 1',
-      description: 'This is a description of course 1.',
-    },
-    {
-      id: 2,
-      name: 'Course 2',
-      description: 'This is a description of course 2.',
-    },
-    // Add initial courses or leave empty
-  ]);
+  const [courses, setCourses] = useState([]); // Initialize with an empty array
 
   const handleSidebarOpen = () => {
     setSidebarOpen(true);
@@ -35,14 +23,13 @@ function InstructorDashboard() {
     setSidebarOpen(false);
   };
 
-  // Function to add a new course
   const handleAddCourse = (newCourse) => {
-    setCourses((prevCourses) => [...prevCourses, newCourse]);
+    setCourses((prevCourses) => [...prevCourses, newCourse]); // Update courses state with the new course
   };
 
   return (
     <div className="instructor-dashboard">
-      <AppBar position="static" className="navbar">
+      <AppBar position="fixed" className="navbar">
         <Toolbar>
           <IconButton
             edge="start"
@@ -65,15 +52,15 @@ function InstructorDashboard() {
               <SearchIcon />
             </IconButton>
           </div>
-          <ProfileMenu />
+          <ProfileMenu className="profile-menu" />
         </Toolbar>
       </AppBar>
-      <Sidebar open={sidebarOpen} onClose={handleSidebarClose} />
-      <div style={{ padding: '20px' }}>
+      <Sidebar open={sidebarOpen} onClose={handleSidebarClose} className="sidebar" />
+      <div style={{ padding: '20px', marginTop: '64px' }} className='content'> {/* Added marginTop to avoid content being hidden behind the navbar */}
         <Routes>
           <Route path="student-dashboard" element={<StudentDashboard />} />
           <Route path="add-course" element={<AddCourseForm onAddCourse={handleAddCourse} />} />
-          <Route path="my-courses" element={<MyCourses courses={courses} />} />
+          <Route path="my-courses" element={<MyCourses courses={courses} />} /> {/* Pass the courses to MyCourses */}
           <Route
             path="*"
             element={
