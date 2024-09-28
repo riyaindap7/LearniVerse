@@ -6,7 +6,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ProfileMenu from '../components/ProfileMenu';
 import Sidebar from '../components/Sidebar';
 import { Routes, Route } from 'react-router-dom';
-import StudentDashboard from './StudentDashboard'; // Import the StudentDashboard page
+import StudentDashboard from './StudentDashboard';
+import AddCourseForm from './AddCourseForm';
+import MyCourses from './MyCourses';
 import './InstructorDashboard.css';
 
 function InstructorDashboard() {
@@ -52,7 +54,8 @@ function InstructorDashboard() {
       <div style={{ padding: '20px' }}>
         <Routes>
           <Route path="student-dashboard" element={<StudentDashboard />} />
-          {/* Add other routes as needed */}
+          <Route path="add-course" element={<AddCourseForm />} />
+          <Route path="my-courses" element={<MyCourses />} />
           <Route
             path="*"
             element={
